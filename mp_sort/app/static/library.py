@@ -11,7 +11,7 @@ def bubble_sort(Array):
         for j in range(n-1):
             if Array[j] > Array[j+1]:
                 Array[j+1],Array[j] = Array[j],Array[j+1]
-return Array
+    return Array
 
 def gen_random_int(number, seed):
 	random.seed(seed)
