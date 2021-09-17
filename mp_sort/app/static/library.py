@@ -1,10 +1,15 @@
-from org.transcrypt.stubs.browser import *
+#from org.transcrypt.stubs.browser import *
 import random
 
 array = []
 
 def gen_random_int(number, seed):
-	pass
+	random.seed(seed)
+	array = []
+	for i in range(number):
+		a = random.randint(0,10)
+		array.append(a)
+	return array
 
 def generate():
 	global array
@@ -12,21 +17,25 @@ def generate():
 	number = 10
 	seed = 200
 
-	# call gen_random_int() with the given number and seed
+    # call gen_random_int() with the given number and seed
 	# store it to the global variable array
-	pass
+	array = gen_random_int(number, seed)
 
-	array = None
+
 	# convert the items into one single string 
 	# the number should be separated by a comma
 	# and a full stop should end the string.
-	pass
-
-	array_str = None
+    
+    array_str = ''
+    for i in array:
+        array_str = array_str + str(i) + ','
+    array_str = array_str[:-1] + '.'
+    	
 
 	# This line is to placed the string into the HTML
 	# under div section with the id called "generate"	
 	document.getElementById("generate").innerHTML = array_str
+    return None
 
 
 def sortnumber1():
