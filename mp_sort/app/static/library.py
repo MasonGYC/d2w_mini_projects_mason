@@ -37,7 +37,7 @@ def generate():
 	# This line is to placed the string into the HTML
 	# under div section with the id called "generate"
     document.getElementById("generate").innerHTML = array_str
-    return None
+    return array_str
 
 
 def sortnumber1():
