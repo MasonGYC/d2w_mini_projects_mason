@@ -1,7 +1,17 @@
-#from org.transcrypt.stubs.browser import *
+from org.transcrypt.stubs.browser import *
 import random
 
 array = []
+
+def bubble_sort(Array):
+    n = len(Array)
+    #pick the compared num
+    for i in range(n-1):
+        #pick the neighbor
+        for j in range(n-1):
+            if Array[j] > Array[j+1]:
+                Array[j+1],Array[j] = Array[j],Array[j+1]
+return Array
 
 def gen_random_int(number, seed):
 	random.seed(seed)
@@ -12,19 +22,11 @@ def gen_random_int(number, seed):
 	return array
 
 def generate():
-	global array
-
-	number = 10
-	seed = 200
-
-    # call gen_random_int() with the given number and seed
-	# store it to the global variable array
-	array = gen_random_int(number, seed)
-
-
-	# convert the items into one single string 
-	# the number should be separated by a comma
-	# and a full stop should end the string.
+    global array
+    number = 10
+    seed = 200
+    
+    array = gen_random_int(number, seed) 
     
     array_str = ''
     for i in array:
@@ -33,52 +35,45 @@ def generate():
     	
 
 	# This line is to placed the string into the HTML
-	# under div section with the id called "generate"	
-	document.getElementById("generate").innerHTML = array_str
+	# under div section with the id called "generate"
+    document.getElementById("generate").innerHTML = array_str
     return None
 
 
 def sortnumber1():
-	'''	This function is used in Exercise 1.
-		The function is called when the sort button is clicked.
 
-		You need to do the following:
-		- get the list of numbers from the global variable array and 
-			copy it to a new list
-		- call your sort function, either bubble sort or insertion sort
-		- create a string of the sorted numbers and store it in array_str
-	'''
-	pass
-
-	array_str = None
-	
-	document.getElementById("sorted").innerHTML = array_str
+    global array
+    new_array = array.copy()
+    sorted_new_array = bubble_sort(new_array)
+    array_str = ''
+    for i in sorted_new_array:
+        array_str = array_str + str(i) + ','
+    array_str = array_str[:-1] + '.' 
+    document.getElementById("sorted").innerHTML = array_str
 
 def sortnumber2():
-	'''	This function is used in Exercise 2.
-		The function is called when the sort button is clicked.
-
-		You need to do the following:
-		- Get the numbers from a string variable "value".
-		- Split the string using comma as the separator and convert them to 
-			a list of numbers
-		- call your sort function, either bubble sort or insertion sort
-		- create a string of the sorted numbers and store it in array_str
-	'''
-	# The following line get the value of the text input called "numbers"
-	value = document.getElementsByName("numbers")[0].value
+    value = document.getElementsByName("numbers")[0].value
 
 	# Throw alert and stop if nothing in the text input
-	if value == "":
-		window.alert("Your textbox is empty")
-		return
+    if value == "":
+        window.alert("Your textbox is empty") 
+        return None
 
 	# Your code should start from here
 	# store the final string to the variable array_str
-	pass
-
-	array_str = None
-
-	document.getElementById("sorted").innerHTML = array_str
+    string_ls = value.split(',')
+    num_ls = [] 
+    for i in string_ls:
+        i = i.strip()
+        num = int(i)
+        num_ls.append(num)
+        
+    array = bubble_sort(num_ls)
+    
+    array_str = ''
+    for i in array:
+        array_str = array_str + str(i) + ','
+    array_str = array_str[:-1] + '.' 
+    document.getElementById("sorted").innerHTML = array_str
 
 
