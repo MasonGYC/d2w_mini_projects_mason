@@ -37,7 +37,6 @@ def generate():
 	# This line is to placed the string into the HTML
 	# under div section with the id called "generate"
     document.getElementById("generate").innerHTML = array_str
-    return array_str
 
 
 def sortnumber1():
@@ -57,7 +56,6 @@ def sortnumber2():
 	# Throw alert and stop if nothing in the text input
     if value == "":
         window.alert("Your textbox is empty") 
-        return None
 
 	# Your code should start from here
 	# store the final string to the variable array_str
