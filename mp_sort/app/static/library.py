@@ -42,7 +42,7 @@ def generate():
 def sortnumber1():
 
     global array
-    new_array = array.copy()
+    new_array = array[:]
     sorted_new_array = bubble_sort(new_array)
     array_str = ''
     for i in sorted_new_array:
